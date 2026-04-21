@@ -57,18 +57,18 @@ black = (0,0,0)
 blue = (0, 0, 255)
 green = (0, 255, 0)
 '''____Attackers____Path____
-Dieser class "Follower" macht, dass die Attackers den Path folgen der mit ROAD_PATH
+Dieser class "Attacker" macht, dass die Attackers den Path folgen der mit ROAD_PATH
  vorgegeben ist'''
-class Follower:
-    '''in def __init__ legen wir an, dass der Attacker immmer weiß, wo er gerade ist,
-    und wo er hin soll. Wir legen die jetzige position vom Attacker als Vektor an, dass
-    man leichter damit rechnen kann und legen auch die geschwindigkeit an vom Attacker'''
+class Attacker:
+    '''in def __init__ legen wir an, dass der Attacker immer weiß, wo er gerade ist,
+    und wo er hin soll. Wir legen die Start Position vom Attacker als Vektor an, dass
+    man leichter damit rechnen kann und legen auch die geschwindigkeit vom Attacker an'''
     def __init__(self, path):
         self.path = path
         self.current_point_idx = 0
-        self.pos = pg.Vector2(path[0])  # Start at the first point
+        self.pos = pg.Vector2(path[0])
         self.speed = 1
-
+    ''''''
     def update(self):
         if self.current_point_idx < len(self.path):
             target = pg.Vector2(self.path[self.current_point_idx])
@@ -88,8 +88,7 @@ class Follower:
 
 # --- INSTANTIATE ---
 # Create one follower object before the loop starts
-follower = Follower(ROAD_PATH)
-
+attacker = Attacker(ROAD_PATH)
 running = True
 while running:
     # ___EVENTS___
@@ -98,7 +97,7 @@ while running:
             running = False
     
     # ___LOGIC___
-    follower.update() # This moves the follower toward the next point
+    attacker.update() # This moves the follower toward the next point
     
     # ___RENDER___
     screen.blit(background, (0, 0))
@@ -110,7 +109,7 @@ while running:
             pg.draw.circle(screen, red, p, 5)
     
     # Draw the follower
-    follower.draw(screen)
+    attacker.draw(screen)
 
     pg.display.flip()
     clock.tick(60)
