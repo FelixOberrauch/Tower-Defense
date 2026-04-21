@@ -57,13 +57,17 @@ black = (0,0,0)
 blue = (0, 0, 255)
 green = (0, 255, 0)
 '''____Attackers____Path____
-Dieser class "Follower" macht, dass die Attackers den Path folgen der mit ROAD_PATH vorgegeben ist'''
+Dieser class "Follower" macht, dass die Attackers den Path folgen der mit ROAD_PATH
+ vorgegeben ist'''
 class Follower:
+    '''in def __init__ legen wir an, dass der Attacker immmer weiß, wo er gerade ist,
+    und wo er hin soll. Wir legen die jetzige position vom Attacker als Vektor an, dass
+    man leichter damit rechnen kann und legen auch die geschwindigkeit an vom Attacker'''
     def __init__(self, path):
         self.path = path
         self.current_point_idx = 0
         self.pos = pg.Vector2(path[0])  # Start at the first point
-        self.speed = 3
+        self.speed = 1
 
     def update(self):
         if self.current_point_idx < len(self.path):
