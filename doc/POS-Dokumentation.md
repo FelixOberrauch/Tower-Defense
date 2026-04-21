@@ -12,9 +12,9 @@ Unser Spiel ist ein Tower Defense Game, indem es Attackers und Defenders gibt.
 
 ## Collage mit mindestens zwei Screenshots  
 
-## Inhaltsverzeichnis 
+## Inhaltsverzeichnis
 
-## Projektzeitplan 
+## Projektzeitplan
 
 | Datum     | Aufgabe                              | Bearbeiter    | Status (%)|
 |------------------------------------------------------------------------------|
