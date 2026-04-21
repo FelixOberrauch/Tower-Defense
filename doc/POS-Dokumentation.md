@@ -7,8 +7,9 @@ Fotos mit Namen
 Betreuer: Mario Bader
 
 Kurzbeschreibung:  
-Unser Spiel ist ein Tower Defense Game, indem es Attackers und Defenders gibt.
- Der Spieler ist ein Defender der mit Figuren oder sogennanten "Towers" gegen eine Armee von Zombies ankämpft.
+Unser Spiel ist ein Tower Defense Game, indem es Attackers und Defenders gibt. Der
+Spieler ist ein Defender der mit Figuren oder sogennanten "Towers" gegen eine
+Armee von Zombies ankämpft.
 
 ## Collage mit mindestens zwei Screenshots  
 
@@ -25,16 +26,18 @@ Unser Spiel ist ein Tower Defense Game, indem es Attackers und Defenders gibt.
 | 20.4.2026 | Hintergrund + Pfad für die Attackers | Shane, Felix  | 95%       |
 |           | angefangen.                          |               |           |
 |------------------------------------------------------------------------------|
-| 21.4.2026 | Pfad für Attackers beendet und einen | Felix, Shane  |           |
+| 21.4.2026 | Pfad für Attackers beendet und einen | Felix, Shane  | 100%      |
 |           | einen Attacker diesem folgen lassen. |               |           |
+|------------------------------------------------------------------------------|
+| 22.4.2026 | Steuerung + ersrte(r) Tower(s)       | Felix         | 80%       |
 |------------------------------------------------------------------------------|
 
 ## Leistungsverzeichnis (Kurzbeschreibung, Funktionsumfang, Skizzen)
 
 ### 2.1. Kurzbeschreibung  
 
-Eine Armee von Zombies greift die Menschheit an. Der Spieler muss mit hilfe der im zur
-vervügung stehenden "Towers" diese abwehren.
+Eine Armee von Zombies greift die Menschheit an. Der Spieler muss mit hilfe der im
+zur vervügung stehenden "Towers" diese abwehren.
 
 ### 2.2. Skizzen
 
@@ -89,6 +92,9 @@ Wenn ihr noch Zeit hättet, was würdet ihr verbessern oder erweitern?
 
 * Endabgabe: dieses Dokument ausgedruckt, Projektverzeichnis per Teams abgeben
 
-* Projektbenotung: Neben dem Endprodukt werden vor allem der Projektfortgang, die Arbeitsweise und die Termintreue benotet (keine Projekte, die in der letzten Nacht fertiggestellt werden!) Der Code soll möglichst übersichtlich gehalten werden (Einsatz von Funktionen und Klassen).
+* Projektbenotung: Neben dem Endprodukt werden vor allem der Projektfortgang, die
+Arbeitsweise und die Termintreue benotet (keine Projekte, die in der letzten Nacht
+fertiggestellt werden!) Der Code soll möglichst übersichtlich gehalten werden
+(Einsatz von Funktionen und Klassen).
 
 Viel Spaß und happy coding!
