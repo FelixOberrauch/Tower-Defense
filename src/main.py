@@ -16,6 +16,8 @@ bg_path = os.path.join(script_dir, "assets", "Background.jpg")
 background = pg.image.load(bg_path)
 CIRCLE_ORIGIN = pg.math.Vector2(1500, 30)
 circle_def = CIRCLE_ORIGIN.copy()
+zombie_walking_path = os.path.join(script_dir, "assets", "zombie_walking.png")
+zombie_walking_image = pg.image.load(zombie_walking_path)
 
 # ____coordinates____Road____Attackers____
 ROAD_PATH = [
@@ -75,6 +77,9 @@ last_shot_time = 0
 rect_gui = pg.Rect(1468,0,200,1024)
 dragging = False
 running = True
+zombie_walking_path = os.path.join(script_dir, "assets", "zombie_walking.png")
+zombie_walking_image = pg.image.load(zombie_walking_path).convert_alpha()
+zombie_walking_image = pg.transform.scale(zombie_walking_image, (80, 80))
 while running:
     # ___EVENTS___
     for event in pg.event.get():
@@ -130,14 +135,8 @@ while running:
         bullet.draw(screen)
         
     Defendgui(1468, 0, 200, 1024, screen, brown, red, circle_def)
-    # Draw the path lines and nodes
-    if len(ROAD_PATH) > 1:
-        pg.draw.lines(screen, green, False, ROAD_PATH, 3) 
-        for p in ROAD_PATH:
-            pg.draw.circle(screen, red, p, 5)
-    
     # Draw the follower
-    attacker.draw(screen)
+    attacker.draw(screen, zombie_walking_image)
 
     pg.display.update()
     clock.tick(60)

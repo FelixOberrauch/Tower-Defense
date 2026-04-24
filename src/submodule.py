@@ -66,20 +66,9 @@ class Attacker:
         else:
             self.alive = False
 
-    def draw(self, surface):
-        if not self.alive:
-            return
-            
-        pg.draw.circle(surface, (200, 0, 0), (int(self.pos.x), int(self.pos.y)), self.radius)
-        
-        bar_width = 30
-        bar_height = 4
-        bar_x = self.pos.x - bar_width // 2
-        bar_y = self.pos.y - self.radius - 10
-        pg.draw.rect(surface, (100, 0, 0), (bar_x, bar_y, bar_width, bar_height))
-        
-        health_ratio = max(0, self.health / self.max_health)
-        pg.draw.rect(surface, (0, 200, 0), (bar_x, bar_y, int(bar_width * health_ratio), bar_height))
+    def draw(self, screen, image):
+        rect = image.get_rect(center=(int(self.pos.x), int(self.pos.y)))
+        screen.blit(image, rect)
 
 class Bullet:
     def __init__(self, start_pos, target_obj):

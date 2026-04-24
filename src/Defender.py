@@ -7,7 +7,7 @@ pistolguy_img = None
 def load_defender_assets():
     global pistolguy_img
     if pistolguy_img is not None:
-        return # Already loaded
+            return # Already loaded
         
     script_dir = os.path.dirname(__file__)
     pistolguy_path = os.path.join(script_dir, "assets", "Pistolguy.png")
