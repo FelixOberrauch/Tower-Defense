@@ -29,9 +29,13 @@ Armee von Zombies ankämpft.
 | 21.4.2026 | Pfad für Attackers beendet und einen | Felix, Shane  | 100%      |
 |           | einen Attacker diesem folgen lassen. |               |           |
 |------------------------------------------------------------------------------|
-| 22.4.2026 | Steuerung + ersrte(r) Tower(s)       | Felix         | 80%       |
+| 22.4.2026 | Erster Tower + Zombis Angreifen +    | Felix         | 100%      |
+|           | rounds                               |               |           |
 |------------------------------------------------------------------------------|
-| 24.4.26   | Unerledigte sachen der woche beenden | Shane, Felix  | 100%      |
+| 24.4.26   | Zombi Bild hochgeladen               | Shane         | 100%      |
+|------------------------------------------------------------------------------|
+| 26.5.26   | Player Health +  Zombie animation    | Shane         | 100%      |
+|           |                                      |(nit gepusht)  |           |
 |------------------------------------------------------------------------------|
 
 ## Leistungsverzeichnis (Kurzbeschreibung, Funktionsumfang, Skizzen)

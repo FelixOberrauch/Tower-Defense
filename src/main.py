@@ -155,15 +155,15 @@ while running:
             current_attacker_health *= 1.5
         elif current_round <= 80:
             spawn_queue = 50
-            current_attacker_health *= 50
-        
-        current_round += 1
+            current_attacker_health *= 50 
         # Optional: reset last_spawn_time to trigger immediate first spawn
         last_spawn_time = pg.time.get_ticks() - spawn_delay
+        current_round += 1
 
     if dragging:
         circle_def.x = pg.mouse.get_pos()[0] - drag_offset.x
         circle_def.y = pg.mouse.get_pos()[1] - drag_offset.y
+   
     # ___RENDER___
     screen.blit(background, (0, 0))
     # Draw placed defenders
