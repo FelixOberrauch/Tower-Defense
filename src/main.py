@@ -18,6 +18,12 @@ CIRCLE_ORIGIN = pg.math.Vector2(1500, 30)
 circle_def = CIRCLE_ORIGIN.copy()
 zombie_walking_path = os.path.join(script_dir, "assets", "zombie_walking.png")
 zombie_walking_image = pg.image.load(zombie_walking_path)
+zombie_walking_image = pg.transform.scale(zombie_walking_image, (80, 80))
+zombie_walking_fast_path = os.path.join(script_dir, "assets", "zombie_walking_fast.png")
+zombie_walking_fast_image = pg.image.load(zombie_walking_fast_path).convert_alpha()
+zombie_walking_fast_image = pg.transform.scale(zombie_walking_fast_image, (80, 80))
+last_anim_time = 0
+current_zombie_frame = 0
 
 # ____coordinates____Road____Attackers____
 ROAD_PATH = [
@@ -83,9 +89,6 @@ last_shot_time = 0
 rect_gui = pg.Rect(1468,0,200,1024)
 dragging = False
 running = True
-zombie_walking_path = os.path.join(script_dir, "assets", "zombie_walking.png")
-zombie_walking_image = pg.image.load(zombie_walking_path).convert_alpha()
-zombie_walking_image = pg.transform.scale(zombie_walking_image, (80, 80))
 i = 2
 
 # ___Text___
@@ -166,7 +169,10 @@ while running:
     if dragging:
         circle_def.x = pg.mouse.get_pos()[0] - drag_offset.x
         circle_def.y = pg.mouse.get_pos()[1] - drag_offset.y
-   
+
+    #___Loose_Health__ 
+    
+
     # ___RENDER___
     screen.blit(background, (0, 0))
     # Draw placed defenders
@@ -183,7 +189,19 @@ while running:
     Defendgui(1468, 0, 200, 1024, screen, brown, red, circle_def)
     # Draw all attackers
     for attacker in attackers:
-        attacker.draw(screen, zombie_walking_image)
+        attacker.draw(screen, current_zombie_image)
+    current_time = pg.time.get_ticks()
+ 
+    if current_time - last_anim_time > 250:
+        current_zombie_frame = (current_zombie_frame + 1) % 2
+        last_anim_time = current_time
+ 
+    if current_zombie_frame == 0:
+        current_zombie_image = zombie_walking_image
+    else:
+        current_zombie_image = zombie_walking_fast_image
+    
+    
 
     pg.display.update()
     clock.tick(60)

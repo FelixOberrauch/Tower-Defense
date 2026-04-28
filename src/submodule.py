@@ -1,7 +1,6 @@
 import pygame as pg
 import os
 
-
 # Placeholder for bullet texture
 bullet_img = None
 
@@ -50,15 +49,21 @@ class Attacker:
         self.max_health = health
         self.alive = True
         self.radius = 12
-
+        self.has_damaged_player = False
+ 
+    def get_rect(self):
+        rect = pg.Rect(0, 0, self.radius * 2, self.radius * 2)
+        rect.center = (int(self.pos.x), int(self.pos.y))
+        return rect
+ 
     def update(self):
         if not self.alive:
             return
-            
+ 
         if self.current_point_idx < len(self.path):
             target = pg.Vector2(self.path[self.current_point_idx])
             direction = target - self.pos
-            
+ 
             if direction.length() < self.speed:
                 self.pos = target
                 self.current_point_idx += 1
@@ -66,12 +71,18 @@ class Attacker:
                 self.pos += direction.normalize() * self.speed
         else:
             self.alive = False
-
+ 
     def draw(self, screen, image):
         rect = image.get_rect(center=(int(self.pos.x), int(self.pos.y)))
         screen.blit(image, rect)
+ 
+    def damage_player(self, player):
+        if not self.has_damaged_player and self.current_point_idx >= len(self.path):
+            player.health -= 2
+            self.has_damaged_player = True
+            self.alive = False
     
-    
+  
 class Bullet:
     def __init__(self, start_pos, target_obj):
         self.pos = pg.Vector2(start_pos)
@@ -115,7 +126,14 @@ class Bullet:
                 pg.draw.rect(bullet_surf, (0, 255, 0), (0, 0, 12, 6))
                 rotated_surf = pg.transform.rotate(bullet_surf, angle)
                 surface.blit(rotated_surf, rotated_surf.get_rect(center=(int(self.pos.x), int(self.pos.y))))
+
 # Print rounds + health
 def draw_text(text, x,y,font,screen,color=(255,255,255)):
     text_surface = font.render(text, True, color)
     screen.blit(text_surface, (x, y))
+
+def loose_pl_health(health,path,screen):
+   plhealth_rect = pg.draw.rect(screen, (255,255,255),pg.Rect(1205,50, 2,2))
+   pg.draw.rect(screen, (255,255,255),pg.Rect(1205,50, 2,2))
+   if plhealth_rect.colliderect():
+       return health - 2
