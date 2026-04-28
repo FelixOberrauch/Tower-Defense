@@ -130,6 +130,9 @@ while running:
     # Update bullets
     for bullet in bullets[:]:
         bullet.update()
+        if attacker.current_point_idx >= len(attacker.path):
+            health_pl -= 2
+            attacker.alive = False
         if not bullet.active:
             bullets.remove(bullet)
             

@@ -134,6 +134,5 @@ def draw_text(text, x,y,font,screen,color=(255,255,255)):
 
 def loose_pl_health(health,path,screen):
    plhealth_rect = pg.draw.rect(screen, (255,255,255),pg.Rect(1205,50, 2,2))
-   pg.draw.rect(screen, (255,255,255),pg.Rect(1205,50, 2,2))
    if plhealth_rect.colliderect():
        return health - 2
